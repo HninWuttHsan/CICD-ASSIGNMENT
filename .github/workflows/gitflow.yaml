@@ -1,0 +1,85 @@
+name: hnin
+
+on:
+  push:
+    branches:
+      - 'feature-01'
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, '#NORUN')" 
+    steps:
+      - name: Available1
+        uses: actions/checkout@v3
+
+      - name: Check.js environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: Install Railway cli start
+        run: npm i -g @railway/cli
+
+      - name: railway up starting
+        run: railway up
+        env:
+          RAILWAY_TOKEN: ${{ secrets.cicdhnin }}
+
+      - name: alert to message show
+        id: slack
+        uses: slackapi/slack-github-action@v1.23.0
+        with:
+          payload: |
+            {
+              "blocks": [
+                {
+                  "type": "header",
+                  "text": {
+                    "type": "plain_text",
+                    "text": "DipSA 56 CI/CD Submission",
+                    "emoji": true
+                  }
+                },
+                {
+                  "type": "section",
+                  "fields": [
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Name:*\nHnin Wutt Hsan"
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Email:*\ne1112929@u.nus.edu"
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Matriculation:*\nA0269546M"
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Repository:*\n${{ github.event.repository.html_url }}"
+                    }
+                  ]
+                },
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "https://${{ secrets.hninlink }}"
+                  }, 
+                  "accessory": {
+                    "type": "button",
+                    "text": {
+                      "type": "plain_text",
+                      "text": "GO",
+                      "emoji": true
+                    },
+                    "url": "https://${{ secrets.hninlink }}"
+                  }
+                }
+              ]
+            }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.slackhookurl }}
+          SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
