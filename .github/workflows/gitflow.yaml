@@ -24,7 +24,7 @@ jobs:
       - name: railway up starting
         run: railway up
         env:
-          RAILWAY_TOKEN: ${{ secrets.cicdhnin }}
+          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
 
       - name: alert to message show
         id: slack
