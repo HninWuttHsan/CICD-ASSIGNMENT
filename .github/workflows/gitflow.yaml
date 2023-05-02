@@ -46,19 +46,19 @@ jobs:
                   "fields": [
                     {
                       "type": "mrkdwn",
-                      "text": "*Name:* Hnin Wutt Hsan"
+                      "text": "*Name:*Hnin Wutt Hsan"
                     },
                     {
                       "type": "mrkdwn",
-                      "text": "*Email:* e1112929@u.nus.edu"
+                      "text": "*Email:*e1112929@u.nus.edu"
                     },
                     {
                       "type": "mrkdwn",
-                      "text": "*Matriculation:* A0269546M"
+                      "text": "*Matriculation:*A0269546M"
                     },
                     {
                       "type": "mrkdwn",
-                      "text": "Repository:\nhttps://github.com/${{ github.repository }}"
+                      "text": "Repository: https://github.com/${{ github.repository }}"
                     }
                   ]
                 },
