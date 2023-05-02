@@ -55,11 +55,8 @@ jobs:
                     {
                       "type": "mrkdwn",
                       "text": "*Matriculation:*\nA0269546M"
-                    },
-                    {
-                      "type": "mrkdwn",
-                      "text": "*Repository:*\n${{ https://github.com/HninWuttHsan/CICD-ASSIGNMENT/tree/feature-01 }}"
                     }
+                    
                   ]
                 },
                 {
