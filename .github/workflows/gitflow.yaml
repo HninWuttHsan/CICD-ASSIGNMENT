@@ -55,8 +55,11 @@ jobs:
                     {
                       "type": "mrkdwn",
                       "text": "*Matriculation:*\nA0269546M"
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Repository:*\n${{ github.event.repository.html_url }}"
                     }
-                    
                   ]
                 },
                 {
@@ -72,7 +75,7 @@ jobs:
                       "text": "GO",
                       "emoji": true
                     },
-                    "url": "${{ secrets.hninlink }}"
+                    "url": "https://${{ secrets.hninlink }}.up.railway.app/"
                   }
                 }
               ]
