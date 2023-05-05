@@ -2,8 +2,8 @@ name: Hnin Wutt Hsan
 
 on:
   push:
-    branches:
-      - 'feature-01'
+    branches: ['release/v*.*','!release/v*.*.*']
+
 
 jobs:
   build-and-deploy:
